@@ -21,7 +21,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build with Gradle
         env:
-          ACCESS_KEY: ${{ secrests.ACCESS_KEY }}
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         run: ./gradlew clean build -x test --parallel --stacktrace
   unit-test:
     runs-on: ubuntu-latest
