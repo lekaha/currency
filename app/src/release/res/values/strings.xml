@@ -1,0 +1,3 @@
+<resources>
+    <string name="base_url">http://api.currencylayer.com</string>
+</resources>

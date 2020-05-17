@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <variable
+            name="viewModel"
+            type="io.github.lekaha.currency.ui.model.CurrencyExchangeItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="@dimen/md_one_half_unit"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fromCurrencyId"
+                style="@style/LabelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/md_one_half_unit"
+                android:layout_marginStart="@dimen/md_one_half_unit"
+                android:text="@{viewModel.profile.currencyRate.from}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="USD" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/toCurrencyId"
+                style="@style/LabelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/md_one_half_unit"
+                android:layout_marginStart="@dimen/md_one_half_unit"
+                android:text="@{viewModel.profile.currencyRate.to}"
+                app:layout_constraintStart_toEndOf="@+id/fromCurrencyId"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="AMD" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rateLabel"
+                style="@style/CardDetailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/md_one_half_unit"
+                android:text="@string/main_label_rate"
+                app:layout_constraintBaseline_toBaselineOf="@+id/toCurrencyId"
+                app:layout_constraintStart_toEndOf="@+id/toCurrencyId"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rate: " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rate"
+                style="@style/LabelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/md_two_unit"
+                android:layout_marginVertical="@dimen/md_one_unit"
+                android:ellipsize="end"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:text="@{String.valueOf(viewModel.profile.currencyRate.rate)}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/rateLabel"
+                app:layout_constraintStart_toEndOf="@+id/rateLabel"
+                tools:text="2.1234567890" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amountLabel"
+                style="@style/CardDetailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/md_one_half_unit"
+                android:layout_marginVertical="@dimen/md_one_half_unit"
+                android:text="@string/main_label_amount"
+                app:layout_constraintBaseline_toBaselineOf="@+id/amount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rateLabel"
+                tools:text="Amount: " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amount"
+                style="@style/AmountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/md_one_half_unit"
+                android:layout_marginVertical="@dimen/md_one_half_unit"
+                android:ellipsize="end"
+                android:maxLength="9"
+                android:maxLines="1"
+                android:text="@{String.valueOf(viewModel.amount)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/amountLabel"
+                app:layout_constraintTop_toBottomOf="@+id/rate"
+                tools:text="123456789" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

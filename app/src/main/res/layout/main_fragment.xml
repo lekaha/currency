@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.github.lekaha.currency.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/md_two_unit"
+        tools:context=".ui.main.MainFragment">
+
+        <TextView
+            android:id="@+id/selectCurrencyLabel"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_label_select_currency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Select a currency" />
+
+        <Spinner
+            android:id="@+id/currencySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/md_two_unit"
+            app:layout_constraintBottom_toBottomOf="@+id/selectCurrencyLabel"
+            app:layout_constraintStart_toEndOf="@+id/selectCurrencyLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectCurrencyLabel"
+            tools:listitem="@layout/layout_currency_spinner_item" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/md_two_unit"
+            android:gravity="right"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.amount}"
+            app:layout_constraintTop_toBottomOf="@+id/selectCurrencyLabel" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/currencyExchangeList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/md_two_unit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
