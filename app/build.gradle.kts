@@ -134,7 +134,7 @@ dependencies {
 fun BuildType.buildConfigFieldFromGradleProperty(gradlePropertyName: String) {
     val propertyValue = project.properties[gradlePropertyName] as? String
         ?: localProperties[gradlePropertyName] as? String
-        ?: System.getenv("ACCESS_KEY")
+        ?: "\"${System.getenv("ACCESS_KEY")}\""
     checkNotNull(propertyValue) { "Gradle property $gradlePropertyName is null" }
 
     val androidResourceName = "GRADLE_${gradlePropertyName.toSnakeCase()}".toUpperCase()
