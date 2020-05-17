@@ -11,12 +11,14 @@ jobs:
     steps:
       - name: Change the watcher size
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      - name: Checkout code repo
+        uses: actions/checkout@v1
       - name: Install JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
       - name: Make Gradle executable
-        run: ls && chmod +x ./gradlew
+        run: chmod +x ./gradlew
       - name: Build with Gradle
         run: ./gradlew clean build -x test --parallel --stacktrace
   unit-test:
