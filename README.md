@@ -67,6 +67,10 @@ CurrencyRateWithCurrency(
 
 Focus on testing Domain layer's Blocs, verifying the requests from views until fetch data if the logic is correct.
 
+## CI 
+
+Using [Github Action](https://github.com/features/actions) as the project's CI, please find result [here](https://github.com/lekaha/currency/actions)
+
 ## Screen capture
 
 ![image](assets/screencapture.gif)
