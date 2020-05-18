@@ -32,7 +32,7 @@ class App : Application() {
         // TODO: Setup logging to crash report for release build
 
         setupDependencyInjection()
-//        setupWorkManagerJob()
+        setupWorkManagerJob()
     }
 
     private fun setupDependencyInjection() {

@@ -8,6 +8,9 @@ import kotlinx.coroutines.flow.collect
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
+/**
+ * Periodical Worker to sync up the latest currency exchange rate from Remote service
+ */
 class RefreshCurrencyRatesWork(
     context: Context,
     params: WorkerParameters,

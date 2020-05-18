@@ -61,7 +61,12 @@ CurrencyRateWithCurrency(
  - `selected_currency`: store the selected country ID
  - `last_amount`: store the last amount
 
- 
+## Sync Up the latest Currency exchange rate
+
+Using Android's [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) 
+with the custom [Worker](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), 
+[RefreshCurrencyRatesWork](https://github.com/lekaha/currency/blob/master/app/src/main/java/io/github/lekaha/currency/domain/RefreshCurrencyRatesWork.kt)
+periodically fetch the latest currency exchange rate and store in the database. 
  
 ## Test code
 

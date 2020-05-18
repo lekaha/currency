@@ -6,6 +6,9 @@ import io.github.lekaha.common.domain.Bloc
 import io.github.lekaha.currency.data.CurrencyRepo
 import io.github.lekaha.currency.entity.Currencies
 
+/**
+ * Business Logic Component behaves fetching the supported currencies
+ */
 class GetCurrenciesBloc(
     private val currencyRepo: CurrencyRepo
 ) : Bloc<Currencies, Bloc.NoneParams>() {

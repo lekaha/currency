@@ -12,6 +12,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Business Logic Component behaves fetching the currency exchange rate list by given the base
+ * currency. In this Bloc, not directly connecting the repository it convert the list fetched from
+ * [GetCurrencyRatesBloc] with the given base currency (Decorate pattern)
+ */
 class GetCurrencyAmountExchangeListBloc(
     private val getCurrencyRatesBloc: GetCurrencyRatesBloc,
     private val currencyRateConverter: CurrencyRateConverter
